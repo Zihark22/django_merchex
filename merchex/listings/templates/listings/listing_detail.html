@@ -1,0 +1,27 @@
+
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+<h2>{{ lst.title }}</h2>
+<div class='encadre'>
+    <ul>
+        <li>Type : {{ lst.get_type_display }}</li>
+        <li>Année de fabrication : {{ lst.year_formed }}</li>
+        <li>Sold : {{ lst.active|yesno }}</li>
+        {% if lst.official_homepage %}
+            <li><a href="{{ lst.official_homepage }}">{{ lst.official_homepage }}</a></li>
+        {% endif %}
+    </ul>
+
+    <p>{{ lst.description }}</p>
+</div>
+
+<button><a href="{% url 'listing-change' lst.id %}">Modifier les infos de l'annonce</a></button>
+<button><a href="{% url 'listing-delete' lst.id %}">Supprimer l'annonce</a></button>
+
+<br><br>
+
+<a href="{% url 'listing-list' %}">Retour à toutes les annonces</a>
+
+{% endblock %}

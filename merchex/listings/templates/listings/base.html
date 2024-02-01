@@ -1,0 +1,32 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>Merchex</title>
+        <link rel="stylesheet" href="{% static 'listings/style.css' %}" />
+    </head>
+    <body>
+        <div id='page'>
+
+            <nav>
+                <ul>
+                    <li><a href="{% url 'band-list' %}">    Groupes     </a></li>
+                    <li><a href="{% url 'listing-list' %}"> Annonces    </a></li>
+                    <li><a href="{% url 'contact' %}">      Contact     </a></li>
+                    <li>
+                        <a href="#">Services</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Service 1</a></li>
+                            <li><a href="#">Service 2</a></li>
+                            <li><a href="#">Service 3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="content">
+            {% block content %}{% endblock %}
+            </div>
+        </div>
+
+    </body>
+</html>
